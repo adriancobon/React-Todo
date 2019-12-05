@@ -6,6 +6,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      // This creates some sample entries
       todos: [
         {
           task: 'Organize Garage',
@@ -23,12 +24,17 @@ class App extends React.Component {
   }
 //  Here be dragons...
   addTodo = e => {
+    // This keeps the bugbears away...
     e.preventDefault();
+    // This creates a new entry to the todos array, at the end.
     const todos = this.state.todos.slice();
+    // This creates the material added to the array
     todos.push({ task: this.state.todo, completed: false, id: Date.now() });
+    // This wraps things up
     this.setState({ todos, todo: '' });
   };
 
+  // This makes it possible to change the state value upon triggering the project.
   changeTodo = e => this.setState({ [e.target.name]: e.target.value });
 
   toggleTodoComplete = id => {
